@@ -6,17 +6,13 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 
-import { Provider } from 'react-redux';
-import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
-
-import { store, rrfProps } from './store/storeConfig'
+//import { Provider } from 'react-redux';
+//import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
+//import { store, rrfProps } from './store/storeConfig'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ReactReduxFirebaseProvider {...rrfProps}>
-        <App />
-    </ReactReduxFirebaseProvider>
-  </Provider>,
+     
+        <App />,
   document.getElementById('root')
 );
 

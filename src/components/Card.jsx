@@ -1,13 +1,6 @@
 import React, { Component } from 'react'
-import { resetAuthMsg } from '../store/actions/authActionCreator'
-import { connect } from 'react-redux'
 
-class Card extends Component {
-
-    componentDidMount(){
-        this.props.resetAuthMsg()
-    }
-
+export default class Card extends Component {
     render() {
         return (
             <div className='content'>
@@ -23,14 +16,3 @@ class Card extends Component {
         )
     }
 }
-
-function mapDispatchToProps(dispatch){
-    return {
-        resetAuthMsg() {
-            const action = resetAuthMsg()
-            dispatch(action)
-        }
-    }
-}
-
-export default connect(null,mapDispatchToProps)(Card)

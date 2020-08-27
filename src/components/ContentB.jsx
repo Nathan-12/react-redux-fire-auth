@@ -1,17 +1,12 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
+import Card from './Card'
 
-
-import Card from './RestrictedCard'
-
-export default class Content extends Component {
-    render() {
-        return (
-            <Card title='Conteúdo do Site' history={this.props.history}>
-                Conteúdo apenas para usuários B<br /><br />
+export default class ContentB extends Component{
+    render(){
+        return(
+            <Card title='Conteúdo B'>
+                Conteúdo B
             </Card>
         )
     }
 }
-
-
-
