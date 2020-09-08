@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import Card from './Card'
 
+import {connect} from 'react-redux'
+import {signup} from '../store/actions/authActionCreator'
 
-export default class Signup extends Component {
+
+class Signup extends Component {
 
     constructor(props) {
         super(props)
@@ -22,8 +25,10 @@ export default class Signup extends Component {
 
     onSubmit(e){
         e.preventDefault()
-        console.log(this.state.login)
-        console.log(this.state.password)
+        //console.log(this.state.login)
+        //console.log(this.state.password)
+        this.props.mySignup(this.state.login, this.state.password)
+
         this.setState({login:'', password: ''})
     }
 
@@ -51,7 +56,28 @@ export default class Signup extends Component {
                     </div>
                     <input type='submit' value='Cadastrar' className='btn btn-primary'/>
                 </form>
+                <div className='alert alert-info'style={{marginTop: '10px'}}>
+                    {this.props.userMessage}
+                </div>
             </Card>
         )
     }
 }
+
+function mapStateToProps(state){
+    return {
+      userMessage: state.authReducer.authMsg
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return{
+        mySignup(login, password){
+          const action = signup(login, password)
+          dispatch(action)  
+        } 
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Signup)
+  
